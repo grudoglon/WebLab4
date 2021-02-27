@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css?family=Codystar:300&display=swap');
+
+.title {
+  font-size: 10vh;
+  font-weight: bold;
+  line-height: 1.6;
+  letter-spacing: -2px;
+  user-select: none;
+}
+
+.container-flow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+
+  grid-template-areas:
+    'one two three'
+    'four five six'
+    'seven eight nine';
+
+  height: calc(100vh - 10px);
+  perspective: 1000px;
+}
+
+.hover-area {
+  align-self: stretch;
+  justify-self: stretch;
+}
+
+.area-1 { grid-area: one; }
+.area-2 { grid-area: two; }
+.area-3 { grid-area: three; }
+.area-4 { grid-area: four; }
+.area-5 { grid-area: five; }
+.area-6 { grid-area: six; }
+.area-7 { grid-area: seven; }
+.area-8 { grid-area: eight; }
+.area-9 { grid-area: nine; }
+
+.hover-area:nth-of-type(1):hover {
+  &~.content-flow {
+    transform: rotateY(-10deg) rotateX(10deg);
+    & .secondary, .quaternary {
+      transform: translateX(-.5rem) rotateY(2deg) rotateX(-2deg);
+    }
+  }
+}
+.hover-area:nth-of-type(2):hover {
+  &~.content-flow {
+    transform: rotateY(0deg) rotateX(10deg);
+    & .secondary, .quaternary {
+      transform: translateX(0) rotateX(0) rotateX(-2deg);
+    }
+  }
+}
+.hover-area:nth-of-type(3):hover {
+  &~.content-flow {
+    transform: rotateY(10deg) rotateX(10deg);
+    & .secondary, .quaternary {
+      transform: translateX(.5rem) rotateY(-2deg) rotateX(-2deg);
+    }
+  }
+}
+.hover-area:nth-of-type(4):hover {
+  &~.content-flow {
+    transform: rotateY(-10deg);
+    & .secondary, .quaternary {
+      transform: translateX(-.5rem) rotateX(2deg);
+    }
+  }
+}
+.hover-area:nth-of-type(5):hover {
+  &~.content-flow {
+    transform: rotateY(0deg);
+    & .secondary, .quaternary {
+      transform: translateX(0) rotateX(0);
+    }
+  }
+}
+.hover-area:nth-of-type(6):hover {
+  &~.content-flow {
+    transform: rotateY(10deg);
+    & .secondary, .quaternary {
+      transform: translateX(.5rem) rotateX(-2deg);
+    }
+  }
+}
+.hover-area:nth-of-type(7):hover {
+  &~.content-flow {
+    transform: rotateY(-10deg) rotateX(-10deg);
+    & .secondary, .quaternary {
+      transform: translateX(-.5rem) rotateY(2deg) rotateX(2deg);
+    }
+  }
+}
+.hover-area:nth-of-type(8):hover {
+  &~.content-flow {
+    transform: rotateY(0deg) rotateX(-10deg);
+    & .secondary, .quaternary {
+      transform: translateX(0) rotateX(0) rotateX(2deg);
+    }
+  }
+}
+.hover-area:nth-of-type(9):hover {
+  &~.content-flow {
+    transform: rotateY(10deg) rotateX(-10deg);
+    & .secondary, .quaternary {
+      transform: translateX(.5rem) rotateY(-2deg) rotateX(2deg);
+    }
+  }
+}
+
+.content-flow {
+  zoom: 0.5;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  grid-area: 1 / 1 / 4 / 4;
+  justify-content: space-between;
+  justify-self: center;
+  //height: 100vh;
+  //width: 43.5rem;
+  //perspective: 1000px;
+  transition: 2s cubic-bezier(0.215, 0.61, 0.355, 1);
+  position: relative;
+  padding: 2rem;
+}
+
+.primary {
+  color: var(--color-primary);
+}
+.secondary {
+  color: var(--color-secondary);
+}
+.tertiary {
+  color: var(--color-tertiary);
+}
+.quaternary {
+  align-self: flex-end;
+  color: var(--color-quaternary);
+}
+.secondary, .quaternary {
+  transition: transform cubic-bezier(0.45, 0.05, 0.55, 0.95) 2s;
+}
+

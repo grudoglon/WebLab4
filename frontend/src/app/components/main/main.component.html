@@ -1,0 +1,132 @@
+<app-header></app-header>
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-sm-5">
+      <div class="main-card bg-box">
+        <div class="main-box">
+          <app-graph (onGraphEvent)="onGraphEvent($event)"></app-graph>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm">
+      <div class="main-card bg-box">
+        <div class="main-box">
+          <div>
+            <h4 class="text-white mb-2 mt-5 mt-lg-0 text-center">Area Form</h4>
+            <div class="justify-content-around">
+              <form class="d-block d-flex flex-column" [formGroup]="mainForm" (ngSubmit)="submit()">
+
+                <label class="text-white font-weight-bold mb-1">X value:</label>
+                <small class="form-text text-muted mb-1">Must be from -4 to 4</small>
+                <div id="x-input" class="form-group mb-1 d-block">
+                  <div class="rdo-grp">
+                    <input id="xv1" type="radio" value="-4" formControlName="x" (change)="valueXChange($event)">
+                    <label for="xv1"><span class="group-input" [ngClass]="{ 'is-invalid': (xInputOnChange || submitted) && f.x.errors }"></span><span>-4</span></label>
+
+                    <input id="xv2" type="radio" value="-3" formControlName="x" (change)="valueXChange($event)"/>
+                    <label for="xv2"><span class="group-input" [ngClass]="{ 'is-invalid': (xInputOnChange || submitted) && f.x.errors }"></span><span>-3</span></label>
+
+                    <input id="xv3" type="radio" value="-2" formControlName="x" (change)="valueXChange($event)"/>
+                    <label for="xv3"><span class="group-input" [ngClass]="{ 'is-invalid': (xInputOnChange || submitted) && f.x.errors }"></span><span>-2</span></label>
+
+                    <input id="xv4" type="radio" value="-1" formControlName="x" (change)="valueXChange($event)"/>
+                    <label for="xv4"><span class="group-input" [ngClass]="{ 'is-invalid': (xInputOnChange || submitted) && f.x.errors }"></span><span>-1</span></label>
+
+                    <input id="xv5" type="radio" value="0" formControlName="x" (change)="valueXChange($event)"/>
+                    <label for="xv5"><span class="group-input" [ngClass]="{ 'is-invalid': (xInputOnChange || submitted) && f.x.errors }"></span><span>0</span></label>
+
+                    <input id="xv6" type="radio" value="1" formControlName="x" (change)="valueXChange($event)"/>
+                    <label for="xv6"><span class="group-input" [ngClass]="{ 'is-invalid': (xInputOnChange || submitted) && f.x.errors }"></span><span>1</span></label>
+
+                    <input id="xv7" type="radio" value="2" formControlName="x" (change)="valueXChange($event)"/>
+                    <label for="xv7"><span class="group-input" [ngClass]="{ 'is-invalid': (xInputOnChange || submitted) && f.x.errors }"></span><span>2</span></label>
+
+                    <input id="xv8" type="radio" value="3" formControlName="x" (change)="valueXChange($event)"/>
+                    <label for="xv8"><span class="group-input" [ngClass]="{ 'is-invalid': (xInputOnChange || submitted) && f.x.errors }"></span><span>3</span></label>
+
+                    <input id="xv9" type="radio" value="4" formControlName="x" (change)="valueXChange($event)"/>
+                    <label for="xv9"><span class="group-input" [ngClass]="{ 'is-invalid': (xInputOnChange || submitted) && f.x.errors }"></span><span>4</span></label>
+
+                  </div>
+
+                </div>
+
+
+                <div class="form-group" id="y-input">
+                  <label class="text-white font-weight-bold mb-0" for="y-text">Y value:</label>
+                  <small class="form-text text-muted mb-1">Must be from -5 to 3</small>
+                  <input (focusout)="yInputOnFocus=true" (input)="valueYChange($event)" formControlName="y" [ngClass]="{ 'is-invalid': (yInputOnFocus || submitted) && f.y.errors }" maxlength="16" autocomplete="off" id="y-text" class="form-control y-text" placeholder="Enter value" type="text" />
+                </div>
+
+
+                <label class="text-white font-weight-bold mb-0">R value:</label>
+                <small class="form-text text-muted mb-1">Must be from 1 to 4</small>
+                <div id="r-input" class="form-group mb-1 d-block">
+                  <div class="rdo-grp">
+                    <input id="rdo1" type="radio" value="-4" formControlName="r" (change)="valueRChange($event)" />
+                    <label for="rdo1"><span class="group-input" [ngClass]="{ 'is-invalid': (rInputOnChange || submitted) && f.r.errors }"></span><span>-4</span></label>
+
+                    <input id="rdo2" type="radio" value="-3" formControlName="r" (change)="valueRChange($event)"/>
+                    <label for="rdo2"><span class="group-input" [ngClass]="{ 'is-invalid': (rInputOnChange || submitted) && f.r.errors }"></span><span>-3</span></label>
+
+                    <input id="rdo3" type="radio" value="-2" formControlName="r" (change)="valueRChange($event)"/>
+                    <label for="rdo3"><span class="group-input" [ngClass]="{ 'is-invalid': (rInputOnChange || submitted) && f.r.errors }"></span><span>-2</span></label>
+
+                    <input id="rdo4" type="radio" value="-1" formControlName="r" (change)="valueRChange($event)"/>
+                    <label for="rdo4"><span class="group-input" [ngClass]="{ 'is-invalid': (rInputOnChange || submitted) && f.r.errors }"></span><span>-1</span></label>
+
+                    <input id="rdo5" type="radio" value="0" formControlName="r" (change)="valueRChange($event)"/>
+                    <label for="rdo5"><span class="group-input" [ngClass]="{ 'is-invalid': (rInputOnChange || submitted) && f.r.errors }"></span><span>0</span></label>
+
+                    <input id="rdo6" type="radio" value="1" formControlName="r" (change)="valueRChange($event)"/>
+                    <label for="rdo6"><span class="group-input" [ngClass]="{ 'is-invalid': (rInputOnChange || submitted) && f.r.errors }"></span><span>1</span></label>
+
+                    <input id="rdo7" type="radio" value="2" formControlName="r" (change)="valueRChange($event)"/>
+                    <label for="rdo7"><span class="group-input" [ngClass]="{ 'is-invalid': (rInputOnChange || submitted) && f.r.errors }"></span><span>2</span></label>
+
+                    <input id="rdo8" type="radio" value="3" formControlName="r" (change)="valueRChange($event)"/>
+                    <label for="rdo8"><span class="group-input" [ngClass]="{ 'is-invalid': (rInputOnChange || submitted) && f.r.errors }"></span><span>3</span></label>
+
+                    <input id="rdo9" type="radio" value="4" formControlName="r" (change)="valueRChange($event)"/>
+                    <label for="rdo9"><span class="group-input" [ngClass]="{ 'is-invalid': (rInputOnChange || submitted) && f.r.errors }"></span><span>4</span></label>
+                  </div>
+                </div>
+
+
+                <div class="form-group text-center">
+                  <input value="Submit" class="btn m-1 btn-primary submit-button"
+                         type="submit" >
+
+                  <input value="Clear form" class="btn m-1 btn-secondary clear-from-button"
+                         type="button" (click)="onClear()" />
+                  <input [routerLink]="['/history']" value="Show table" class="btn m-1 btn-secondary"
+                         type="button" />
+
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<ng-template #customNotification let-notificationData="notification">
+  <div>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg mt-2">{{ notificationData.message}}</div>
+        <div class=""><button (click)="onNotifyClick(notificationData.id)" class="btn btn-secondary"><i class="fa fa-table"></i></button></div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+
+<notifier-container></notifier-container>
